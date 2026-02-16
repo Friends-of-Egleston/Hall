@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends of Egleston Hall - Too Expensive to Replace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.85)), 
+                        url('IMG_4956.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .hero .year {
+            font-size: 2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .alert-banner {
+            background: #c0392b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-bottom: 4px solid #922b21;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #654321;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .why-matters {
+            background: #f8f5f0;
+            padding: 60px 20px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #8b4513;
+        }
+
+        .reason-card h3 {
+            color: #654321;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .reason-card p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2c5f2d, #1e4620);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signup-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .signup-form h3 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2c5f2d;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1e4620;
+        }
+
+        .timeline {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            border: 3px solid #c0392b;
+        }
+
+        .timeline-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .timeline-content strong {
+            color: #c0392b;
+            font-size: 1.3em;
+        }
+
+        .photo-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .gallery-item.large img {
+            height: auto;
+            filter: sepia(0.2);
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .letters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .letter-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #2c5f2d;
+        }
+
+        .letter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .letter-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .letter-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            line-height: 1.3;
+        }
+
+        .letter-date {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .letter-excerpt {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .letter-link {
+            color: #2c5f2d;
+            font-weight: bold;
+            align-self: flex-start;
+        }
+
+        .gallery-emphasis {
+            background: linear-gradient(135deg, #8b4513, #654321);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .gallery-emphasis strong {
+            font-size: 1.1em;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .action-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #2c5f2d;
+        }
+
+        .action-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .action-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .action-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2c5f2d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #1e4620;
+        }
+
+        .email-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .email-modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .email-template-box {
+            background: #f8f8f8;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .email-template-box pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Georgia', serif;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 8px 16px;
+            background: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #1e4620;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.large,
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+
+            .email-modal-content {
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .action-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .share-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .share-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .share-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-banner">
+        ⚠️ URGENT: Plans are being drawn up to demolish Egleston Hall
+    </div>
+
+    <div class="hero">
+        <h1>Friends of Egleston Hall</h1>
+        <p class="subtitle">The best and most responsible use of the northeast corner since 1918</p>
+    </div>
+
+    <div class="container">
+        <div style="max-width: 900px; margin: 0 auto 60px; padding: 40px 20px; text-align: center; background: #f8f5f0; border-radius: 8px;">
+            <p style="font-size: 1.3em; line-height: 1.8; color: #2c3e50;">
+                <strong>Demolishing Egleston Hall and attempting to build a brand new structure would be far more expensive than working with the building we already have.</strong> Where is the $44 million+ (in 2025 dollars) going to come from to reconfigure the block when it's unclear if the southwest corner will ever be feasible to develop?
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="photo-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item wide">
+                        <img src="View_from_Couch_pano.jpg" alt="Interior panoramic view of Egleston Hall">
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="Corner_Office_2.jpg" alt="Corner office interior">
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="West_Peachtree_634_Historic_page_14_Ruth_Dusseault.jpg" alt="Historic photo of Egleston Hall exterior">
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="West_Peachtree_634_-_1.JPG" alt="Egleston Hall entrance with trees">
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="West_Peachtree_facade.JPG" alt="Egleston Hall facade with Atlanta skyline">
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="West_peachtree_Campus_chart.png" alt="Campus map showing Egleston Hall location">
+                    </div>
+                    
+                    <div class="gallery-item wide">
+                        <img src="West_Peachtree_with_stand-in_collonade_1969_p1.jpg" alt="1969 architectural rendering">
+                    </div>
+                    
+                    <div class="gallery-item wide">
+                        <img src="West_peachtree_Aerial_page_122_Langford.jpg" alt="Aerial view of campus">
+                    </div>
+                    
+                    <div class="gallery-item wide">
+                        <img src="Blueprint_January_1917.jpg" alt="Original 1917 architectural blueprints">
+                    </div>
+                    
+                    <div class="gallery-item wide">
+                        <img src="Blueprint_p2_Jan_1917.jpg" alt="1917 architectural blueprints page 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Letters of Support</h2>
+            <div class="letters-grid">
+                <a href="Partners_for_Sacred_Places_Letter_Feb_2_2026.pdf" target="_blank" class="letter-card">
+                    <div class="letter-icon">📄</div>
+                    <h3>Partners for Sacred Places</h3>
+                    <p class="letter-date">February 2, 2026</p>
+                    <p class="letter-excerpt">National nonprofit focused on the community value of older religious buildings supports preservation of Egleston Hall.</p>
+                    <span class="letter-link">Read Letter →</span>
+                </a>
+
+                <a href="National_Trust_Letter_of_Support_for_Egleston_Hall_1_23_26.pdf" target="_blank" class="letter-card">
+                    <div class="letter-icon">📄</div>
+                    <h3>National Trust for Historic Preservation</h3>
+                    <p class="letter-date">January 23, 2026</p>
+                    <p class="letter-excerpt">Congressionally chartered organization urges sensitive rehabilitation of this highly significant Akron Plan structure.</p>
+                    <span class="letter-link">Read Letter →</span>
+                </a>
+
+                <a href="Georgia_Trust_for_Historic_Preservation_Letter_Jan_5_2026.pdf" target="_blank" class="letter-card">
+                    <div class="letter-icon">📄</div>
+                    <h3>Georgia Trust for Historic Preservation</h3>
+                    <p class="letter-date">January 5, 2026</p>
+                    <p class="letter-excerpt">Egleston Hall selected as a 2026 Place in Peril due to its architectural and historical significance.</p>
+                    <span class="letter-link">Read Letter →</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>The Threat</h2>
+            <div class="timeline">
+                <div class="timeline-content">
+                    <p><strong>Plans are currently being drawn up to demolish Egleston Hall and build a replacement.</strong></p>
+                    <p style="margin-top: 20px;">This decision would waste tens of millions of dollars. Demolition costs, new construction, and replacing this level of craftsmanship would far exceed the cost of preserving and renovating what we already have.</p>
+                    <p style="margin-top: 20px;">Once this 1918 building is gone, we'll have spent a fortune to lose something priceless. There are smarter, more economical solutions that preserve this building and serve our community's needs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Take Action Now</h2>
+            <div class="action-cards">
+                <div class="action-card">
+                    <h3>📧 Send an Email</h3>
+                    <p>Contact decision-makers directly to voice your support for preservation.</p>
+                    <button class="action-btn" onclick="openEmailTemplate()">Get Email Template</button>
+                </div>
+                
+                <div class="action-card">
+                    <h3>📝 Join Our Mailing List</h3>
+                    <p>Stay informed about preservation efforts and upcoming actions.</p>
+                    <a href="#signup" class="action-btn">Sign Up Below</a>
+                </div>
+                
+                <div class="action-card">
+                    <h3>📢 Spread the Word</h3>
+                    <p>Share this campaign with friends, family, and on social media.</p>
+                    <button class="action-btn" onclick="shareOnSocial('facebook')">Share Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="emailModal" class="email-modal" style="display: none;">
+        <div class="email-modal-content">
+            <span class="close-modal" onclick="closeEmailModal()">&times;</span>
+            <h2>Email Template</h2>
+            <p style="margin-bottom: 20px;">Copy this template and send it to church leadership, city officials, or preservation organizations:</p>
+            
+            <div class="email-template-box">
+                <button class="copy-btn" onclick="copyEmailTemplate()">📋 Copy Template</button>
+                <pre id="emailTemplateText">SUBJECT: Urgent: Preserve Egleston Hall - Save Money, Save History
+
+Dear [Name/Title],
+
+I am writing to urge you to reconsider the plans to demolish Egleston Hall. Preservation is not just the right choice for our history—it's the smart financial decision.
+
+THE FINANCIAL CASE FOR PRESERVATION:
+
+Building new would cost tens of millions. Between demolition costs, new construction, permits, and materials, replacing Egleston Hall would be an enormous expense. Meanwhile, we already own a structurally sound 1918 building with:
+
+• Hand-laid stone masonry that would cost a fortune to replicate
+• Gothic Revival architectural details impossible to recreate at any reasonable cost
+• Original woodwork and craftsmanship of a quality no longer available
+• A building already paid for and standing on our property
+
+Renovation and adaptive reuse of historic buildings consistently costs 10-40% less than new construction. Preservation makes economic sense.
+
+WHAT WE'RE ASKING:
+
+1. Commission a professional preservation assessment to explore renovation costs vs. new construction costs
+
+2. Research historic preservation grants and tax incentives that could offset renovation expenses
+
+3. Engage with preservation architects who specialize in cost-effective historic building renovation
+
+4. Allow the community to explore fundraising specifically for preservation
+
+The most expensive decision would be to demolish an irreplaceable 1918 building and spend tens of millions trying to replace what we already have. Let's make the financially responsible choice that also honors our history.
+
+I would welcome the opportunity to discuss cost-effective preservation solutions.
+
+Thank you for your consideration.
+
+Sincerely,
+[Your Name]
+[Your Contact Information]</pre>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+                <strong>Suggested Recipients:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                    <li>Church vestry or leadership</li>
+                    <li>Diocese officials</li>
+                    <li>City historic preservation commission</li>
+                    <li>Local city council members</li>
+                    <li>Georgia Trust for Historic Preservation</li>
+                    <li>Local media outlets</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section" id="signup">
+        <div class="container">
+            <h2>Smart Preservation, Not Costly Demolition</h2>
+            <p>Renovation and preservation make economic sense. Join our campaign to explore cost-effective alternatives that save both money and this historic building.</p>
+            
+            <div class="signup-form">
+                <h3>Join the Movement</h3>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="zip">ZIP Code (optional)</label>
+                        <input type="text" id="zip" name="zip" placeholder="30301">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Join Friends of Egleston Hall</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 20px;">Every Voice Matters</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Together, we can preserve Egleston Hall for future generations.</p>
+            <p style="opacity: 0.8;">Historic buildings tell the story of who we are. Let's make sure this story continues.</p>
+            
+            <div class="share-section">
+                <h3>Spread the Word</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-btn" onclick="shareOnSocial('facebook'); return false;">Share on Facebook</a>
+                    <a href="#" class="share-btn" onclick="shareOnSocial('twitter'); return false;">Share on Twitter</a>
+                    <a href="#" class="share-btn" onclick="shareOnSocial('email'); return false;">Share via Email</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.9em; opacity: 0.7;">
+                © 2026 Friends of Egleston Hall
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+        // See SETUP_INSTRUCTIONS.md for detailed setup steps
+        const SCRIPT_URL = 'YOUR_SCRIPT_URL_HERE';
+        
+        function openEmailTemplate() {
+            document.getElementById('emailModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeEmailModal() {
+            document.getElementById('emailModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function copyEmailTemplate() {
+            const templateText = document.getElementById('emailTemplateText').textContent;
+            navigator.clipboard.writeText(templateText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                alert('Please manually copy the text');
+            });
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('emailModal');
+            if (event.target == modal) {
+                closeEmailModal();
+            }
+        }
+        
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const zip = document.getElementById('zip').value;
+            
+            // Send data to Google Sheets
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    zip: zip
+                })
+            })
+            .then(() => {
+                // Show success message
+                alert('Thank you for joining Friends of Egleston Hall! We\'ll keep you updated on our preservation efforts.\n\nYour information has been saved.');
+                
+                // Reset form
+                document.getElementById('signupForm').reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Thank you for your interest! If you experience any issues, please email us directly.');
+            })
+            .finally(() => {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        function shareOnSocial(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Help save Egleston Hall, a historic 1918 building in Georgia!');
+            
+            let shareUrl;
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=Save Egleston Hall&body=${text}%20${url}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
