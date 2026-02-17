@@ -635,43 +635,71 @@
 
     <div class="cta-section" id="signup">
         <div class="container">
-            <h2>Stay Informed</h2>
-            <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2em;">Join our mailing list to receive updates about preservation efforts for Egleston Hall.</p>
-            
             <div id="mc_embed_shell">
                 <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
                 <style type="text/css">
                     #mc_embed_signup{
                         background: white;
-                        clear: left;
+                        clear: both;
                         font: 14px Helvetica,Arial,sans-serif;
                         max-width: 600px;
+                        width: 100%;
                         margin: 0 auto;
                         padding: 40px;
                         border-radius: 10px;
                         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                        position: relative;
+                        z-index: 1;
                     }
                     #mc_embed_signup h2 {
                         color: #2c3e50;
                         font-size: 1.5em;
                         margin-bottom: 20px;
+                        margin-top: 0;
+                    }
+                    #mc_embed_signup .indicates-required {
+                        display: none;
+                    }
+                    #mc_embed_signup .asterisk {
+                        display: none;
+                    }
+                    #mc_embed_signup .mc-field-group {
+                        width: 100%;
+                        padding-bottom: 3%;
+                        min-height: 50px;
+                    }
+                    #mc_embed_signup .mc-field-group input {
+                        width: 100%;
+                        padding: 12px;
+                        border: 2px solid #ddd;
+                        border-radius: 5px;
+                        font-size: 1em;
+                        box-sizing: border-box;
                     }
                     #mc_embed_signup .button {
                         background: #2c5f2d !important;
                         font-size: 1.1em;
                         padding: 12px 30px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
                     }
                     #mc_embed_signup .button:hover {
                         background: #1e4620 !important;
+                    }
+                    #mc_embed_signup div.mce_inline_error {
+                        background-color: #f8d7da;
+                        border-color: #f5c6cb;
+                        color: #721c24;
                     }
                 </style>
                 <div id="mc_embed_signup">
                     <form action="https://friendsofegleston.us9.list-manage.com/subscribe/post?u=dd58100973098ca9db4aa4823&amp;id=a85a7db5e3&amp;f_id=001a55e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                         <div id="mc_embed_signup_scroll">
-                            <h2>Subscribe</h2>
-                            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                            <h2>Stay Informed</h2>
+                            <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">Join our mailing list to get updates</p>
                             <div class="mc-field-group">
-                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                                <label for="mce-EMAIL">Email Address</label>
                                 <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
                             </div>
                             <div id="mce-responses" class="clear foot">
