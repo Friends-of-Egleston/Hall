@@ -633,141 +633,17 @@
 
     </div>
 
-    <div class="cta-section" id="signup">
-        <div class="container">
-            <h2>Smart Preservation, Not Costly Demolition</h2>
-            <p>Renovation and preservation make economic sense. Join our campaign to explore cost-effective alternatives that save both money and this historic cornerstone of our community.</p>
-            
-            <div class="signup-form">
-                <h3>Stay Informed</h3>
-                <form id="signupForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Sign up for updates</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
-            <p style="margin-top: 40px; font-size: 0.9em; opacity: 0.7;">
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: white; margin-bottom: 15px; font-size: 1.4em;">Contact Us</h3>
+                <a href="mailto:friendsofeglestonhall@gmail.com" style="color: rgba(255,255,255,0.85); font-size: 1.1em; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4);">friendsofeglestonhall@gmail.com</a>
+            </div>
+            <p style="font-size: 0.9em; opacity: 0.7;">
                 © 2026 Friends of Egleston Hall
             </p>
         </div>
     </footer>
 
-    <script>
-        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-        // See SETUP_INSTRUCTIONS.md for detailed setup steps
-        const SCRIPT_URL = 'YOUR_SCRIPT_URL_HERE';
-        
-        function openEmailTemplate() {
-            document.getElementById('emailModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeEmailModal() {
-            document.getElementById('emailModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        function copyEmailTemplate() {
-            const templateText = document.getElementById('emailTemplateText').textContent;
-            navigator.clipboard.writeText(templateText).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Copied!';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 2000);
-            }).catch(err => {
-                alert('Please manually copy the text');
-            });
-        }
-        
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('emailModal');
-            if (event.target == modal) {
-                closeEmailModal();
-            }
-        }
-        
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const zip = document.getElementById('zip').value;
-            
-            // Send data to Google Sheets
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    zip: zip
-                })
-            })
-            .then(() => {
-                // Show success message
-                alert('Thank you for joining Friends of Egleston Hall! We\'ll keep you updated on our preservation efforts.\n\nYour information has been saved.');
-                
-                // Reset form
-                document.getElementById('signupForm').reset();
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('Thank you for your interest! If you experience any issues, please email us directly.');
-            })
-            .finally(() => {
-                // Restore button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
-        });
-
-        function shareOnSocial(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Help save Egleston Hall, a historic 1918 building in Georgia!');
-            
-            let shareUrl;
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=Save Egleston Hall&body=${text}%20${url}`;
-                    break;
-            }
-            
-            if (shareUrl) {
-                window.open(shareUrl, '_blank');
-            }
-        }
-    </script>
 </body>
 </html>
