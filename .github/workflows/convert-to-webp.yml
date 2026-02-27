@@ -1,13 +1,9 @@
 name: Convert Images to WebP
 
 on:
-  push:
-    paths:
-      - '**.png'
-      - '**.jpg'
-      - '**.jpeg'
-    branches:
-      - main
+  workflow_dispatch:  # Manual trigger via Actions tab
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC
 
 jobs:
   convert-images:
@@ -28,25 +24,19 @@ jobs:
           sudo apt-get install -y webp
 
       - name: Convert images to WebP
-        id: convert
         run: |
-          converted_count=0
-          # Find all image files in root directory
           for file in *.{png,jpg,jpeg}; do
             if [ -f "$file" ] && [ ! -f "${file%.*}.webp" ]; then
               output="${file%.*}.webp"
               cwebp "$file" -o "$output" -q 80
               echo "✅ Converted: $file → $output"
-              ((converted_count++))
             fi
           done
-          echo "count=$converted_count" >> $GITHUB_OUTPUT
 
       - name: Commit and push WebP files
-        if: steps.convert.outputs.count > 0
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git add *.webp
-          git commit -m "🖼️ Auto-convert: Added WebP versions of images"
-          git push origin main
+          git add *.webp || true
+          git commit -m "🖼️ Auto-convert: Added WebP versions" || echo "No changes"
+          git push origin main || true
