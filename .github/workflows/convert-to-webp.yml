@@ -1,0 +1,39 @@
+name: Convert Images to WebP
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install WebP
+        run: sudo apt-get install -y webp
+
+      - name: Convert images to WebP
+        run: |
+          mkdir -p converted
+          for img in $(find . -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) ! -path "*/converted/*" ! -path "*/.git/*"); do
+            filename=$(basename "$img")
+            name="${filename%.*}"
+            cwebp "$img" -o "converted/${name}.webp"
+            echo "Converted $img to converted/${name}.webp"
+          done
+
+      - name: Commit converted images
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          if [ -n "$(git status --porcelain converted/)" ]; then
+            git add converted/*.webp
+            git commit -m "🖼️ Automatically converted images to WebP format"
+            git push
+          fi
